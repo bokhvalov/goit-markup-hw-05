@@ -670,17 +670,26 @@ address > .link {
   align-items: baseline;
 }
 
+/**
+--------------------
+MODAL-INDEX
+-------------------- */
+
+
 .backdrop {
   position: fixed;
-  z-index: 1;
   opacity: 1;
   visibility: visible;
+
+  top: 0;
   left: 0;
   right: 0;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.2);
-  transition: opacity 250ms var(--timing-function);
+
+  transition-property: opacity, visibility;
+  transition: 250ms var(--timing-function);
 }
 
 .modal {
@@ -698,8 +707,11 @@ address > .link {
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
 
-  transition: transform 250ms var(--timing-function);
+  transition-property: scale;
+  transition: 250ms var(--timing-function);
 }
+
+
 
 .close-icon {
   position: absolute;
@@ -720,7 +732,8 @@ address > .link {
 }
 
 .is-hidden .modal {
-  transform: translate(-50%, -100%);
+  transform: translate(-50%, 200%);
+  scale: 0.2;
 }
 
 .backdrop.is-hidden {
